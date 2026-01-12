@@ -1,0 +1,178 @@
+// components/Navbar.tsx
+"use client"; 
+
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
+const Navbar = () => {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    {
+      name: "Our Services",
+      dropdown: [
+        { name: "Consulting", href: "/services/consulting" },
+        { name: "AI Solutions", href: "/services/ai-solutions" },
+        { name: "Cloud Services", href: "/services/cloud" },
+      ],
+    },
+    {
+      name: "Our Products",
+      dropdown: [
+        { name: "Product A", href: "/products/a" },
+        { name: "Product B", href: "/products/b" },
+      ],
+    },
+  
+  
+    {
+      name: "Contact Us",
+      dropdown: [
+        { name: "Support", href: "/contact/support" },
+        { name: "Sales", href: "/contact/sales" },
+      ],
+    },
+  ];
+
+  return (
+    <nav className="bg-white  sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <Image
+                className="h-14 w-auto"
+                src="/assets/logo.png" // replace with your logo path
+                alt="Itechnetronics Technologies"
+                width={100}
+                height={100}
+              />
+            </Link>
+          </div>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex md:items-center space-x-4">
+            {navLinks.map((link) =>
+              link.dropdown ? (
+                <div key={link.name} className="relative group">
+                  <button className="flex items-center gap-1 text-gray-800 font-medium hover:text-primary">
+                    {link.name} <ChevronDownIcon className="w-4 h-4" />
+                  </button>
+                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-800 font-medium hover:text-primary"
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
+
+            {/* Client Support Button */}
+            <Link
+              href="/support"
+              className="ml-4 px-3 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200"
+            >
+              Client Support →
+            </Link>
+
+            {/* Contact Us Button */}
+            <Link
+              href="/contact"
+              className="ml-2 px-4 py-2 bg-primary text-white rounded hover:bg-blue-900"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-800 hover:text-primary focus:outline-none"
+            >
+              {isMobileMenuOpen ? (
+                <XMarkIcon className="w-6 h-6" />
+              ) : (
+                <Bars3Icon className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          {navLinks.map((link) =>
+            link.dropdown ? (
+              <div key={link.name} className="border-b border-gray-100">
+                <details>
+                  <summary className="px-4 py-3 cursor-pointer text-gray-800 font-medium flex justify-between items-center">
+                    {link.name}
+                    <ChevronDownIcon className="w-4 h-4" />
+                  </summary>
+                  <div className="pl-6 pb-2">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block py-2 text-gray-700 hover:text-primary"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            ) : (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="block px-4 py-3 text-gray-800 font-medium border-b border-gray-100 hover:text-primary"
+              >
+                {link.name}
+              </Link>
+            )
+          )}
+
+          {/* Mobile Buttons */}
+          <div className="px-4 py-3 flex flex-col space-y-2">
+            <Link
+              href="/support"
+              className="px-3 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 text-center"
+            >
+              Client Support →
+            </Link>
+            <Link
+              href="/contact"
+              className="px-3 py-2 bg-primary text-white rounded hover:bg-blue-900 text-center"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;

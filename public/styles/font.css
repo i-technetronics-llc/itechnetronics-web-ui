@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family: 'Millik';
+    src: url('/public/fonts/Millik.ttf') format('truetype'),
+         url('/public/fonts/Millik.otf') format('opentype');
+  }
+  
