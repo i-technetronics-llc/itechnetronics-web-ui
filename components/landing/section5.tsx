@@ -27,27 +27,27 @@ const IndustryBadge: React.FC<IndustryBadgeProps> = ({ image, label }) => (
 const IndustriesSection: React.FC = () => {
   const industries = [
     {
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop',
+      image: '/assets/p3.jpg',
       label: 'OEM Application',
     },
     {
-      image: 'https://images.unsplash.com/photo-1621570074981-cc2a58a0fc18?w=100&h=100&fit=crop',
+      image: '/assets/p1.jpg',
       label: 'DevOps Services',
     },
     {
-      image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=100&h=100&fit=crop',
+      image: '/assets/p4.jpg',
       label: 'Database Solutions',
     },
     {
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=100&h=100&fit=crop',
+      image: '/assets/p2.jpg',
       label: 'IT Staffing and Recruitment',
     },
     {
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
+      image: '/assets/p3.jpg',
       label: 'Social Media Marketing Strategy',
     },
     {
-      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=100&h=100&fit=crop',
+      image: '/assets/p4.jpg',
       label: 'Technical Support & Management Service',
     },
   ];
