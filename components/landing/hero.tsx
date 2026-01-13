@@ -26,13 +26,13 @@ cutting-edge hardware and software solutions with a
 strong focus on people
           </p>
           {/* Partners */}
-          <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
+          {/* <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
             <Image width={100} height={100} src="/partners/uk.png" alt="UK" className="h-8" />
             <Image width={100} height={100} src="/partners/microsoft.png" alt="Microsoft" className="h-8" />
             <Image width={100} height={100} src="/partners/oracle.png" alt="Oracle" className="h-8" />
             <Image width={100} height={100} src="/partners/dell.png" alt="Dell" className="h-8" />
             <Image width={100} height={100} src="/partners/sap.png" alt="SAP" className="h-8" />
-          </div>
+          </div> */}
         </div>
 
         {/* Right Image */}

@@ -5,13 +5,13 @@ import Image from 'next/image';
 const WhyBluechipSection: React.FC = () => {
   // Logo data - replace with your actual logo URLs
   const logos = [
-    { name: 'Orange', url: '/assets/c1.png' },
-    { name: 'TMB', url: '/assets/c2.png' },
-    { name: 'National Bank', url: '/assets/c3.png' },
-    { name: 'Safaricom', url: '/assets/c4.png' },
-    { name: 'Stanbic IBTC', url: '/assets/c5.png' },
-    { name: 'Dangote', url: '/assets/c1.png' },
-    { name: 'Equity', url: '/assets/c3.png' },
+    { name: 'Orange', url: '/assets/m1.avif' },
+    { name: 'TMB', url: '/assets/m2.avif' },
+    { name: 'National Bank', url: '/assets/m3.jpg' },
+    { name: 'Safaricom', url: '/assets/m4.svg' },
+    { name: 'Stanbic IBTC', url: '/assets/m5.png' },
+    { name: 'Stanbic IBTC', url: '/assets/m6.png' },
+ 
   ];
 
   // Duplicate logos for seamless infinite scroll
@@ -37,7 +37,7 @@ const WhyBluechipSection: React.FC = () => {
       </section>
 
       {/* Scrolling Logos */}
-      <div className="relative overflow-hidden bg-white py-12 mt-8">
+      <div className="relative overflow-hidden bg-white py-10 mt-8">
         {/* Gradient overlays for smooth fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
@@ -54,7 +54,7 @@ const WhyBluechipSection: React.FC = () => {
                 alt={logo.name}
                 width={100}
                 height={100}
-                className="max-w-full h-20 object-contain  hover:grayscale-0 transition-all duration-300"
+                className="max-w-full h-28 object-contain  hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}

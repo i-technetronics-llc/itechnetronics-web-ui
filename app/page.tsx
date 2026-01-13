@@ -1,4 +1,5 @@
 import FAQSection from "@/components/landing/faq";
+import Footer from "@/components/landing/footer";
 import Header from "@/components/landing/header"
 import Hero from "@/components/landing/hero";
 import StatsSection from "@/components/landing/section2";
@@ -20,8 +21,9 @@ export default function Home() {
     <IndustriesSection/>
     <WhyBluechipSection/>
     <OurProductsSection/>
-    <FAQSection/>
     <ProjectsSection/>
+    <FAQSection/>
+    <Footer/>
     </>
   );
 }
