@@ -37,8 +37,10 @@ const Navbar = () => {
     {
       name: "Our Products",
       dropdown: [
-        { name: "Product A", href: "/products/a" },
-        { name: "Product B", href: "/products/b" },
+        { name: "RotaWise", href: "/products/rotawise" },
+        { name: "Antfi", href: "/products/antfi" },
+        { name: "AntBuilder", href: "/products/antbuilder" },
+        { name: "AntConfig", href: "/products/antconfig" },
       ],
     },
     {

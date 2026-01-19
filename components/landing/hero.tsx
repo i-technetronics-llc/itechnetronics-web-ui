@@ -1,6 +1,6 @@
 // components/Hero.tsx
 import Image from "next/image";
-import heroImage from "@/public/assets/Bluechip-Cube-1-768x834.png";
+import heroImage from "@/public/assets/g2.png";
 
 export default function Hero() {
   return (
@@ -40,9 +40,9 @@ strong focus on people
           <Image
             src={heroImage}
             alt="AI and Data Illustration"
-            width={500}
-            height={500}
-            className="object-contain"
+            width={1200}
+            height={900}
+            className="object-contain  "
           />
         </div>
       </div>
