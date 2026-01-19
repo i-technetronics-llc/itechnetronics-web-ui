@@ -29,9 +29,11 @@ const Navbar = () => {
     {
       name: "Our Services",
       dropdown: [
-        { name: "Consulting", href: "/services/consulting" },
-        { name: "AI Solutions", href: "/services/ai-solutions" },
-        { name: "Cloud Services", href: "/services/cloud" },
+        { name: "ERP / CRM", href: "/services/erp-crm" },
+        { name: "Network Services", href: "/services/network-services" },
+        { name: "Cyber Security", href: "/services/cyber-security" },
+        { name: "Business Intelligence", href: "/services/business-intelligence" },
+        { name: "Engineering & Design", href: "/services/engineering-design" },
       ],
     },
     {
