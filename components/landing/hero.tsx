@@ -1,6 +1,6 @@
 // components/Hero.tsx
 import Image from "next/image";
-import heroImage from "@/public/assets/g2.png";
+import heroImage from "@/public/assets/hero2.svg";
 
 export default function Hero() {
   return (
