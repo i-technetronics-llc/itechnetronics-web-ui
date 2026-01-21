@@ -20,7 +20,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
     <div className="group">
       <button
         onClick={onToggle}
-        className="w-full bg-white hover:bg-gray-50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100 hover:border-primary/20"
+        className="w-full bg-white cursor-pointer hover:bg-gray-50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100 hover:border-primary/20"
       >
         <div className="flex items-center justify-between gap-4">
           <h3 className="text-left font-semibold text-lg text-gray-900 group-hover:text-primary transition-colors">
