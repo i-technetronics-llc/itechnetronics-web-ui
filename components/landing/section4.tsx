@@ -1,19 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, href }) => (
   <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
     <div className="mb-6">{icon}</div>
     <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
     <p className="text-gray-600 leading-relaxed text-sm mb-8 flex-grow">{description}</p>
-    <button className="text-blue-800 font-semibold hover:text-blue-900 transition-colors text-left">
+    <Link href={href} className="text-blue-800 font-semibold hover:text-blue-900 transition-colors text-left">
       Learn more
-    </button>
+    </Link>
   </div>
 );
 
@@ -90,31 +92,37 @@ const OurServicesSection: React.FC = () => {
       icon: <DataServicesIcon />,
       title: 'ERP/CRM',
       description: 'We offer enterprise resources planning and customer relationship management.',
+      href: '/services/erp-crm',
     },
     {
       icon: <AIServicesIcon />,
       title: 'Network Service',
       description: 'Wide Area Network - VSAT, Microwave Radio, FiberP Optics & VPN Audiovisual (Video collaboration solutions,  Network monitoring solutions, SD-WAN',
+      href: '/services/network-services',
     },
     {
       icon: <InfrastructureIcon />,
       title: 'Cyber Security Service',
       description: 'Cyber security, IT infrastructure Audit, Penetration Testing, Bug Hunting, Data Centre Solution, Network information security.',
+      href: '/services/cyber-security',
     },
     {
       icon: <ApplicationsIcon />,
       title: 'Business Intelligence Solutions',
       description: 'Cloud BI Solution, Data Visualization, Advanced Analytics,  ETL Services, AI Integration.',
+      href: '/services/business-intelligence',
     },
     {
       icon: <PlatformsIcon />,
       title: 'Engineering Service & Designs',
       description: 'Software Design & Development, Mobile Application Design & Development, UI/UX Web Application Development, Web Service/API Development',
+      href: '/services/engineering-design',
     },
      {
       icon: <ConsultingIcon />,
       title: 'Surveillance & Monitoring Services',
       description: 'Video Surveillance System, Access Control Systems, Intrusion Detection Systems, Alarm Systems, Maintenance and Support',
+      href: '#',
     },
    
   ];
@@ -131,6 +139,7 @@ const OurServicesSection: React.FC = () => {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              href={service.href}
             />
           ))}
         </div>

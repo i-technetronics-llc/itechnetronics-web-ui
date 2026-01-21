@@ -5,11 +5,12 @@ import Image from 'next/image';
 const WhyBluechipSection: React.FC = () => {
   // Logo data - replace with your actual logo URLs
   const logos = [
-    { name: 'Orange', url: '/assets/m1.avif' },
-    { name: 'TMB', url: '/assets/m2.avif' },
-    { name: 'National Bank', url: '/assets/m3.jpg' },
+    { name: 'Orange', url: '/assets/m1.webp=n-w300-h96-fcrop64=1,00000000ffffffff-rw' },
+    { name: 'TMB', url: '/assets/m2.png' },
     { name: 'Safaricom', url: '/assets/m4.svg' },
     { name: 'Stanbic IBTC', url: '/assets/m5.png' },
+    { name: 'National Bank', url: '/assets/m3.jpg' },
+
     { name: 'Stanbic IBTC', url: '/assets/m6.png' },
  
   ];
