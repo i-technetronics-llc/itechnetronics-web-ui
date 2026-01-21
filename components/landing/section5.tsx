@@ -1,22 +1,20 @@
 import React from 'react';
-import Image from 'next/image';
-
+import { 
+  CodeBracketSquareIcon, 
+  UserGroupIcon, 
+  CloudArrowUpIcon, 
+  SparklesIcon 
+} from '@heroicons/react/24/outline';
 
 interface IndustryBadgeProps {
-  image: string;
+  icon: React.ReactNode;
   label: string;
 }
 
-const IndustryBadge: React.FC<IndustryBadgeProps> = ({ image, label }) => (
-  <div className="inline-flex items-center gap-3 bg-gray-50 hover:bg-gray-100 transition-colors rounded-full pl-2 pr-6 py-2 shadow-sm">
-    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-      <Image
-        width={100}
-        height={100}
-        src={image} 
-        alt={label} 
-        className="w-full h-full object-cover"
-      />
+const IndustryBadge: React.FC<IndustryBadgeProps> = ({ icon, label }) => (
+  <div className="inline-flex items-center gap-3 bg-gray-50 hover:bg-blue-50 transition-colors rounded-full pl-3 pr-6 py-2 shadow-sm border border-gray-200">
+    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+      {icon}
     </div>
     <span className="text-lg font-semibold text-gray-900 whitespace-nowrap">
       {label}
@@ -27,27 +25,27 @@ const IndustryBadge: React.FC<IndustryBadgeProps> = ({ image, label }) => (
 const IndustriesSection: React.FC = () => {
   const industries = [
     {
-      image: '/assets/p3.jpg',
+      icon: <CodeBracketSquareIcon className="w-6 h-6" />,
       label: 'OEM Application',
     },
     {
-      image: '/assets/p1.jpg',
+      icon: <UserGroupIcon className="w-6 h-6" />,
       label: 'DevOps Services',
     },
     {
-      image: '/assets/p4.jpg',
+      icon: <CloudArrowUpIcon className="w-6 h-6" />,
       label: 'Database Solutions',
     },
     {
-      image: '/assets/p2.jpg',
+      icon: <SparklesIcon className="w-6 h-6" />,
       label: 'IT Staffing and Recruitment',
     },
     {
-      image: '/assets/p3.jpg',
+      icon: <CodeBracketSquareIcon className="w-6 h-6" />,
       label: 'Social Media Marketing Strategy',
     },
     {
-      image: '/assets/p4.jpg',
+      icon: <UserGroupIcon className="w-6 h-6" />,
       label: 'Technical Support & Management Service',
     },
   ];
@@ -70,7 +68,7 @@ const IndustriesSection: React.FC = () => {
           {industries.map((industry, index) => (
             <IndustryBadge
               key={index}
-              image={industry.image}
+              icon={industry.icon}
               label={industry.label}
             />
           ))}
