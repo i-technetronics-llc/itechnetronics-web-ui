@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { PlusIcon, MinusIcon } from '@heroicons/react/24/outline';
 
 interface FAQItemProps {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
-  onHover: () => void;
 }
 
 interface FAQ {
@@ -15,38 +15,36 @@ interface FAQ {
   answer: string;
 }
 
-const FAQItem = ({ question, answer, isOpen, onToggle, onHover }: FAQItemProps) => {
+const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
   return (
-    <div className="mb-4" onMouseEnter={onHover}>
+    <div className="group">
       <button
         onClick={onToggle}
-        className="w-full flex items-start gap-4 bg-primary hover:bg-primary text-white rounded-3xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl"
+        className="w-full bg-white hover:bg-gray-50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-100 hover:border-primary/20"
       >
-        <div className="flex-shrink-0 w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center">
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-          </svg>
-        </div>
-        <span className="flex-1 text-left font-medium text-lg">{question}</span>
-        <div className="flex-shrink-0 w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center">
-          <svg 
-            className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+        <div className="flex items-center justify-between gap-4">
+          <h3 className="text-left font-semibold text-lg text-gray-900 group-hover:text-primary transition-colors">
+            {question}
+          </h3>
+          <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+            isOpen ? 'bg-primary text-white rotate-180' : 'bg-gray-100 text-gray-600 group-hover:bg-primary/10 group-hover:text-primary'
+          }`}>
+            {isOpen ? (
+              <MinusIcon className="w-5 h-5" />
+            ) : (
+              <PlusIcon className="w-5 h-5" />
+            )}
+          </div>
         </div>
       </button>
       
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-blue-500 text-white rounded-3xl p-6 ml-14 mr-14 shadow-lg">
-          <p className="leading-relaxed">{answer}</p>
+        <div className="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl p-6 ml-1 border-l-4 border-primary">
+          <p className="text-gray-700 leading-relaxed">{answer}</p>
         </div>
       </div>
     </div>
@@ -54,7 +52,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle, onHover }: FAQItemProps) 
 };
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs: FAQ[] = [
     {
@@ -80,18 +78,26 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <section className="relative bg-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="relative max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+            FAQ
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
-          </h1>
-          <p className="text-lg text-gray-600">
-           We have compiled a list of commonly asked questions and answers for you.
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Everything you need to know about our services.
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-4">
           {faqs.map((faq, index: number) => (
             <FAQItem
               key={index}
@@ -99,11 +105,10 @@ export default function FAQSection() {
               answer={faq.answer}
               isOpen={openIndex === index}
               onToggle={() => toggleFAQ(index)}
-              onHover={() => setOpenIndex(index)}
             />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
