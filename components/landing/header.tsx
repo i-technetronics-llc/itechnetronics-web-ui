@@ -48,8 +48,8 @@ const Navbar = () => {
     {
       name: "Contact Us",
       dropdown: [
-        { name: "Support", href: "/contact/support" },
-        { name: "Sales", href: "/contact/sales" },
+        { name: "Support", href: "/contact" },
+        { name: "Sales", href: "/contact" },
       ],
     },
   ];
@@ -105,7 +105,7 @@ const Navbar = () => {
 
             {/* Client Support Button */}
             <Link
-              href="/support"
+              href="/contact"
               className="ml-4 px-3 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition-colors"
             >
               Client Support →
@@ -177,7 +177,7 @@ const Navbar = () => {
           {/* Mobile Buttons */}
           <div className="px-4 py-3 flex flex-col space-y-2 bg-gray-50">
             <Link
-              href="/support"
+              href="/contact"
               className="px-3 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 text-center transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >

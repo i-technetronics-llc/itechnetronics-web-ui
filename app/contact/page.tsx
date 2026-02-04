@@ -230,8 +230,8 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="John Doe"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg transition-colors text-black"
+                  placeholder="Enter your full name"
                 />
               </div>
 
@@ -249,8 +249,8 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg transition-colors text-black"
+                  placeholder="Enter your email address"
                 />
               </div>
 
@@ -267,8 +267,8 @@ export default function ContactPage() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="+1 (555) 123-4567"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg transition-colors text-black"
+                  placeholder="Enter your phone number"
                 />
               </div>
 
@@ -286,8 +286,8 @@ export default function ContactPage() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="How can we help you?"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg transition-colors text-black"
+                  placeholder="What is this regarding?"
                 />
               </div>
 
@@ -305,8 +305,8 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                  placeholder="Tell us more about your inquiry..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg transition-colors resize-none text-black"
+                  placeholder="Describe your message in detail"
                 />
               </div>
 
