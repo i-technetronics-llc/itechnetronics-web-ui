@@ -7,6 +7,7 @@ interface Project {
   description: string;
   image: string;
   icon: string;
+  link?: string;
 }
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
@@ -38,21 +39,50 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 h-[480px] flex flex-col">
-        <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-6xl">{project.icon}</div>
+      {project.link ? (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block h-full"
+        >
+          <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 h-[480px] flex flex-col">
+            <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
+              <img src={`/assets/${project.image}`} alt={project.title} className="w-full h-full object-cover" />
+            </div>
+            
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                <p className="text-white/90 leading-relaxed text-sm">
+                  {project.description}
+                </p>
+              </div>
+              <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white text-orange-600 rounded-lg font-semibold w-fit">
+                Visit Site
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-4l6-6m0 0V4m0 6H12" />
+                </svg>
+              </div>
+            </div>
           </div>
-       
+        </a>
+      ) : (
+        <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 h-[480px] flex flex-col">
+          <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
+            <img src={`/assets/${project.image}`} alt={project.title} className="w-full h-full object-cover" />
+          </div>
+          
+          <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white flex-1 flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+              <p className="text-white/90 leading-relaxed text-sm">
+                {project.description}
+              </p>
+            </div>
+          </div>
         </div>
-        
-        <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white flex-1 flex flex-col">
-          <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-          <p className="text-white/90 leading-relaxed text-sm flex-1">
-            {project.description}
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
@@ -64,40 +94,41 @@ export default function ProjectsSection() {
 
   const projects: Project[] = [
     {
+      title: "Mathsmetal",
+      description: "Data Migration and Application Integration Project. MathsMetal is a comprehensive data migration and application integration project that focuses on transitioning critical business data and applications from an on-premises server to a cloud-based environment. This project involves the seamless transfer of data while ensuring data integrity, security, and compliance with industry standards.",
+      image: "maths.jpg",
+      icon: "☁️",
+      link: "https://www.mathsmetalsrecycling.com.ng/"
+    },
+    {
       title: "Ashton Living",
       description: "A comprehensive platform for elderly hospice care, Ashton Living is a revolutionary platform designed to simplify the process of finding suitable hospice living accommodations for the elderly. This user-friendly platform serves as a one-stop shop, allowing users to search, compare, and select the best hospice facilities based on specific needs and preferences.",
-      image: "elderly-care.jpg",
+      image: "ashton.jpeg",
       icon: "🏡"
     },
     {
       title: "EdCheck",
       description: "EdCheck is a platform that allows students to get direct and personalized feedback on their course questions and homework attempts.",
-      image: "education.jpg",
+      image: "edcheck.svg",
       icon: "✅"
     },
     {
       title: "Hobbyist",
       description: "This app is intended for collectors who want to inventory and understand the value of their collections over time.",
-      image: "hobby.jpg",
+      image: "hobbyist.svg",
       icon: "📚"
     },
     {
       title: "EzyMedik",
       description: "The EzyMedik App provides bill payment via NHIS providers, ambulance requests, medication orders, appointment management, health information, secure health records, and hospital location services.",
-      image: "medical.jpg",
+      image: "ezy.png",
       icon: "🏥"
     },
     {
       title: "World Main Market",
       description: "World Main Market brings physical markets and stores around you to your phone. Get direct access to store owners without going to the market.",
-      image: "market.jpg",
+      image: "world_market.png",
       icon: "🛒"
-    },
-    {
-      title: "Mathsmetal",
-      description: "Data Migration and Application Integration Project. MathsMetal is a comprehensive data migration and application integration project that focuses on transitioning critical business data and applications from an on-premises server to a cloud-based environment. This project involves the seamless transfer of data while ensuring data integrity, security, and compliance with industry standards.",
-      image: "cloud.jpg",
-      icon: "☁️"
     }
   ];
 

@@ -75,10 +75,12 @@ export default function RotaWisePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/contact"
+                  href="https://rotawise.lovable.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 bg-white text-primary rounded-lg font-semibold shadow-lg shadow-black/10 hover:-translate-y-0.5 transition-transform text-center"
                 >
-                  Schedule a Demo
+                  Visit Site
                 </Link>
                 <Link
                   href="#target-users"

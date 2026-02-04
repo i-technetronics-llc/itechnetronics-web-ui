@@ -79,6 +79,18 @@ const WhyBluechipSection: React.FC = () => {
         .animate-scroll:hover {
           animation-play-state: paused;
         }
+
+        @media (max-width: 768px) {
+          .animate-scroll {
+            animation: scroll 15s linear infinite;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .animate-scroll {
+            animation: scroll 10s linear infinite;
+          }
+        }
       `}</style>
     </section>
   );
