@@ -34,7 +34,6 @@ RUN addgroup --system --gid 1001 nodejs && \
 # Copy the necessary built files from the builder stage
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Switch to the non-root user
 USER nextjs
